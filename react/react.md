@@ -21,6 +21,7 @@
     主要是浏览器的DOM属性太多,多次操作性能差。
     虚拟don用js对象实现,把中间的DOM变化都算好,只需要浏览器改变最少的DOM
 
+★重新渲染render会做些什么
 ★介绍DOM树对比(diff) React中Dom结构发生变化后内部经历了哪些变化 jsx的key的作用
     Web UI中DOM节点跨层级的移动操作特别少，可以忽略不计。(不考虑跨层情况就是改卸载卸载，该创建创建)
     拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结构。(意思就是同一个组件执行更新操作，不同的组件 直接卸载再加载新的组件)
@@ -41,6 +42,9 @@
 
 ★React怎么做数据的检查和变化
 ★React中setState后发生了什么
+    异步模式下会合并状态（新的覆盖旧的）
+    同步模式下会叠加
+    之后交给虚拟DOM
 
 ★react常见的通信方式
     context props和state
@@ -57,8 +61,6 @@
     同步：
         在setTimeout函数中触发setState
         在原生事件中触发setState，如document.addEventListener('click',function(){...})
-
-★重新渲染render会做些什么 
 
 ★哪些方法会触发react重新渲染
     setstate
