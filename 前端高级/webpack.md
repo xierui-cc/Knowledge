@@ -1,28 +1,24 @@
-dev-server是怎么跑起来
+★dev-server是怎么跑起来
 
-介绍AST（Abstract Syntax Tree）抽象语法树
+★介绍AST（Abstract Syntax Tree）抽象语法树
 
-webpack介绍 webpack做了什么
+★webpack介绍 webpack做了什么
     就是把现在花里胡哨（jsx TypeScript less 这些浏览器是不认识的）的前端项目打包成浏览器能跑的代码，主要是模块化的思想。
-webpack打包的整个过程 生命周期，
-
+    
+★webpack打包的整个过程 生命周期，
 
 ★loader和plugin有什么区别
     loader 用于加载某些资源文件。 因为webpack本身只能打包commonjs规范的js文件，对于其他资源例如 css，图片，或者其他的语法集，比如 jsx， coffee，是没有办法加载的。 这就需要对应的loader将资源转化，加载进来。从字面意思也能看出，loader是用于加载的，它作用于一个个文件上。
 
     plugin 插件，比如压缩代码啥的。
 
-webpack优化
-使用webpack构建时有无做一些自定义操作
+★使用webpack构建时有无做一些自定义操作
 
 ★使用import时，webpack对node_modules里的依赖会做什么
     直接引入啥都不做，因为依赖稳定而且有min版js，主要是对业务代码进行打包
 
 ★打包时Hash码是怎么生成的
     一般是根据JS文件内容生成的hash，配置的时候只要文件内容不变，hash就不变，就会被浏览器缓存住
-
-★如何对相对路径引用进行优化
-    使用别名resolve.alias
 
 ★npm2和npm3+有什么区别
     npm2依赖有层级关系 依赖树会很大很深
@@ -38,10 +34,14 @@ webpack优化
 
 ★如何配置把js、css、html单独打包成一个文件
 
+★如何对相对路径引用进行优化
+    使用别名resolve.alias
+
 ★抽取公共文件是怎么配置的
     CommonChunkPlugin插件
 
 -------------------------------------------------------------------------------------------------------------大佬问题以后再看
 
+webpack优化
 前端怎么做单元测试(自动化测试的)
 webpack里面的插件是怎么实现的

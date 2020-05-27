@@ -57,8 +57,4 @@
         Etag （解决上面 时间精度问题 一般是hash）
         If-None-Match
 
-★HTTP和HTTPS的区别 
-
-★HTTPS的加密过程
-
-介绍下数字签名的原理 SSL/TLS
+★HTTP和HTTPS的区别 HTTPS的加密过程（SSL/TLS）

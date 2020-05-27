@@ -1,6 +1,6 @@
 ★介绍暂时性死区 let、const以及var的区别
     var会找到所有的var并进行【创建create】【初始化initialize】，执行的时候才会【赋值assign】 
-    
+
     let/const 声明的变量的作用域是块级的；
     let会找到所有的let并进行【创建create】，执行的时候才会【初始化initialize】【赋值assign】，所谓暂时性死区，就是不能在【初始化initialize】之前使用变量。const声明的变量不得改变值，这意味着，const一旦声明变量，就必须立即初始化，不能留到以后赋值。
 
