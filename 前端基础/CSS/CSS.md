@@ -28,6 +28,27 @@
 
 ★介绍flex布局
 
+    容器属性
+        flex-direction： row | column | row-reverse | column-reverse 设置主轴方向 交叉轴会对应改变
+        flex-wrap： nowrap(单行) | wrap（折行） | wrap-reverse（反向折行）
+        flex-flow：flex-drection + flex-wrap 复合属性
+
+        justify-content：元素在主轴对齐方式
+            flex-start(左对齐) | flex-end(右对齐) | center(居中) | space-between(两边贴紧容器散开) | space-around(每个元素都有固定的边距的散开)
+        align-content 交叉轴上对齐方式 (多行)
+            stretch | flex-start | flex-end | center | space-between | space-around
+        align-items 交叉轴上的单行对齐
+            stretch（如果元素没有固定框度 则会自动撑满） | flex-start(起点对齐) | flex-end(终点对齐) | center(居中) | baseline(文字基线对齐)
+    
+    元素属性
+        flex-grow： 放大比例  默认为0 需要手动设置 (单行)
+        flex-shrink： 缩小比例 默认为1 等比例缩小 刚刚好填满 (单行)
+        flex-basis 主轴上的初始尺寸 (单行)
+        flex = flex-grow + flex-shrink + flex-basis (单行)
+
+        order 排列顺序 数字小的优先
+        align-self：用来覆盖父组件align-items
+
 ★介绍position
 
     static（默认）
