@@ -48,6 +48,6 @@ app.start
 
 dva/dynamic（懒加载）
 
-    就是打包会打成多个文件
+    就是打包会打成多个文件,一般用在每个路由组件下面，一个路由相当于单页面应用，打成一个文件
 
 https://blog.csdn.net/weixin_38398698/article/details/93387757

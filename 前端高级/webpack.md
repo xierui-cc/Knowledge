@@ -1,3 +1,16 @@
+★模块化
+
+    CommonJS - 服务端规范 - require()
+        加载模块是同步的，所以只有加载完成才能执行后面的操作，加载的模块文件一般都已经存在本地硬盘，所以加载起来比较快，不用考虑异步加载的方式
+
+    AMD - require([module], callback)
+        提前执行 依赖前置 异步加载
+
+    CMD - SeaJS
+        延迟执行 依赖就近(按需加载) 异步加载 异步执行
+
+    import/export - ES6
+
 ★介绍AST（Abstract Syntax Tree）抽象语法树
 
     （fs.read读取文件、正则匹配替换文本、fs.write写入文件这种笨拙的方式外，我们可以用AST优雅地解决问题）
@@ -15,7 +28,6 @@
 
     loader 用于加载某些资源文件。 因为webpack本身只能打包commonjs规范的js文件，对于其他资源例如 css，图片，或者其他的语法集，比如 jsx， coffee，是没有办法加载的。 这就需要对应的loader将资源转化，加载进来。从字面意思也能看出，loader是用于加载的，它作用于一个个文件上。
     plugin 插件，比如压缩代码啥的。
-
 
 ★使用import时，webpack对node_modules里的依赖会做什么
 

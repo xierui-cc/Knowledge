@@ -4,13 +4,12 @@
     w3c的盒子模型包括（margin(外边距)，padding(内边距)，边框(border）,内容(content) w3c的width=content）
 
     可以通过box-sizing属性控制元素的盒子模型的解析模式，默认为content-box
-        context-box：W3C的标准盒子模型，设置元素的 height/width 属性指的是content部分的高/宽
-        border-box：IE传统盒子模型。设置元素的height/width属性指的是border + padding + content部分的高/宽
+        context-box：W3C的标准盒子模型
+        border-box：IE传统盒子模型
 
 ★BFC
 
-    BFC规定了内部的Block Box如何布局。
-    定位方案：
+    简单的理解就是: 爸爸管儿子 兄弟之间划清界限
 
     内部的Box会在垂直方向上一个接一个放置。
     Box垂直方向的距离由margin决定，属于同一个BFC的两个相邻Box的margin会发生重叠。
@@ -26,29 +25,6 @@
         display的值为inline-block、table-cell、table-caption
         position的值为absolute或fixed
 
-★介绍flex布局
-
-    容器属性
-        flex-direction： row | column | row-reverse | column-reverse 设置主轴方向 交叉轴会对应改变
-        flex-wrap： nowrap(单行) | wrap（折行） | wrap-reverse（反向折行）
-        flex-flow：flex-drection + flex-wrap 复合属性
-
-        justify-content：元素在主轴对齐方式
-            flex-start(左对齐) | flex-end(右对齐) | center(居中) | space-between(两边贴紧容器散开) | space-around(每个元素都有固定的边距的散开)
-        align-content 交叉轴上对齐方式 (多行)
-            stretch | flex-start | flex-end | center | space-between | space-around
-        align-items 交叉轴上的单行对齐
-            stretch（如果元素没有固定框度 则会自动撑满） | flex-start(起点对齐) | flex-end(终点对齐) | center(居中) | baseline(文字基线对齐)
-    
-    元素属性
-        flex-grow： 放大比例  默认为0 需要手动设置 (单行)
-        flex-shrink： 缩小比例 默认为1 等比例缩小 刚刚好填满 (单行)
-        flex-basis 主轴上的初始尺寸 (单行)
-        flex = flex-grow + flex-shrink + flex-basis (单行)
-
-        order 排列顺序 数字小的优先
-        align-self：用来覆盖父组件align-items
-
 ★介绍position
 
     static（默认）
@@ -59,6 +35,11 @@
     (css3)
     sticky：兼容性差，粘贴定位。它的解释是，监听页面的srcoll 事件，当元素超过视图区块顶部、左边、右边、下边距离后，添加 fixed，反之，则去掉。
     注意：1.优先级：top>left>right>bottom。 2. 祖父元素必须设置 overflow: visible。
+
+★脱离文档流
+
+    absolute(绝对定位)可以脱离文档流，也会脱离文本流
+    float会脱离文档流，而不会脱离文本流
 
 ★CSS选择器有哪些
 
@@ -75,18 +56,12 @@
 
 ★清除浮动
 
-    浮动元素碰到包含它的边框或者浮动元素的边框停留。由于浮动元素不在文档流中，所以文档流的块框表现得就像浮动框不存在一样。浮动元素会漂浮在文档流的块框上。
-    浮动带来的问题：
-        父元素的高度无法被撑开，影响与父元素同级的元素
-        与浮动元素同级的非浮动元素（内联元素）会跟随其后
-        若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构。
-    清除浮动的方式：
-        最后一个浮动元素后加空div标签 并添加样式clear:both。
-            lear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入口，不让子盒子出来（一般用伪元素而不是div）
-        包含浮动元素的父标签添加样式overflow为hidden或auto。 通过触发BFC方式，实现清除浮动
-            缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏掉，无法显示要溢出的元素
-        父级div定义zoom
-        父级div定义height
+    最后一个浮动元素后加空div标签 并添加样式clear:both。
+        lear：both：本质就是闭合浮动， 就是让父盒子闭合出口和入口，不让子盒子出来（一般用伪元素而不是div）
+    包含浮动元素的父标签添加样式overflow为hidden或auto。 通过触发BFC方式，实现清除浮动
+        缺点：内容增多的时候容易造成不会自动换行导致内容被隐藏掉，无法显示要溢出的元素
+    父级div定义zoom
+    父级div定义height
 
 
 ★transform动画和直接使用left、top改变位置有什么优缺点
@@ -111,8 +86,4 @@
     CSS选择器的解析是从右向左解析的。若从左向右的匹配，发现不符合规则，需要进行回溯，会损失很多性能。若从右向左匹配，先找到所有的最右节点，对于每一个节点，向上寻找其父节点直到找到根元素或满足条件的匹配规则，则结束这个分支的遍历。两种匹配规则的性能差别很大，是因为从右向左的匹配在第一步就筛选掉了大量的不符合条件的最右节点（叶子节点），而从左向右的匹配规则的性能都浪费在了失败的查找上面。
     而在 CSS 解析完毕后，需要将解析的结果与 DOM Tree 的内容一起进行分析建立一棵 Render Tree，最终用来进行绘图。在建立 Render Tree 时（WebKit 中的「Attachment」过程），浏览器就要为每个 DOM Tree 中的元素根据 CSS 的解析结果（Style Rules）来确定生成怎样的 Render Tree。
 
-如何实现高度自适应
-两个元素块，一左一右，中间相距10像素
-上下固定，中间滚动布局如何实现
-div垂直水平居中
-动画的了解
+★动画的了解
